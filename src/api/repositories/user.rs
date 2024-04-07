@@ -38,10 +38,10 @@ pub async fn update(pool: &PgPool, id: String, name: &str, email: &str) -> Resul
     Ok(user)
 }
 
-// pub async fn delete(pool: &PgPool, id: String) -> Result<(), sqlx::Error> {
-//     // sqlx::query("DELETE FROM users WHERE id = $1")
-//     //     .bind(&id)
-//     //     .execute(())
-//     //     .await?;
-//     Ok(())
-// }
+pub async fn delete(pool: &PgPool, id: String) -> Result<(), sqlx::Error> {
+    sqlx::query("DELETE FROM users WHERE id = $1")
+        .bind(&id)
+        .execute(pool)
+        .await?;
+    Ok(())
+}

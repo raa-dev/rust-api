@@ -8,6 +8,6 @@ pub fn init(config: &mut web::ServiceConfig) {
             .route("/{id}", web::get().to(controllers::user::find_by_id))
             .route("", web::post().to(controllers::user::create))
             .route("/{id}", web::put().to(controllers::user::update))
-            // .route("/{id}", web::delete().to(controllers::user::delete))
+            .route("/{id}", web::delete().to(controllers::user::delete))
     );
 }

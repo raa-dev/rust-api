@@ -24,7 +24,7 @@ pub async fn update(pool: web::Data<PgPool>, id: web::Path<String>, user: web::J
     HttpResponse::Ok().json(user)
 }
 
-// pub async fn delete(pool: web::Data<PgPool>, id: web::Path<String>) -> HttpResponse {
-//     user_service::delete(&pool, id.into_inner()).await.unwrap();
-//     HttpResponse::Ok().finish()
-// }
+pub async fn delete(pool: web::Data<PgPool>, id: web::Path<String>) -> HttpResponse {
+    user_service::delete(&pool, id.into_inner()).await.unwrap();
+    HttpResponse::Ok().finish()
+}
