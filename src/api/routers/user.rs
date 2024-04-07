@@ -1,8 +1,8 @@
 use actix_web::web;
 use crate::api::controllers;
 
-pub fn init(cfg: &mut web::ServiceConfig) {
-    cfg.service(
+pub fn init(config: &mut web::ServiceConfig) {
+    config.service(
         web::scope("/users")
             .route("", web::get().to(controllers::user::find_all))
             .route("/{id}", web::get().to(controllers::user::find_by_id))
